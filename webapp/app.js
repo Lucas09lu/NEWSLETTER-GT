@@ -46,6 +46,11 @@
 
   /* ---------- datos ---------- */
   function fetchJson(url) {
+    // Versión de un solo archivo (vista-previa-web.html): datos incrustados.
+    if (window.__GT_DATA__) {
+      var embedded = window.__GT_DATA__[url];
+      return embedded ? Promise.resolve(embedded) : Promise.reject(new Error("No incluido en este archivo: " + url));
+    }
     return fetch(url, { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status + " en " + url);
       return r.json();
@@ -273,7 +278,7 @@
       showError(err.message);
     });
 
-  if ("serviceWorker" in navigator) {
+  if ("serviceWorker" in navigator && !window.__GT_DATA__ && location.protocol !== "file:") {
     window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
   }
 })();

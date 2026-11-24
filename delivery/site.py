@@ -10,6 +10,7 @@ Estructura generada:
 
 from __future__ import annotations
 
+import base64
 import json
 import logging
 import shutil
@@ -81,4 +82,32 @@ def build_site(dest: Path, edition_dirs: list[Path], email_preview: Path | None 
         shutil.copy2(ASSETS / LOGO_FILE, preview / LOGO_FILE)
 
     log.info("Sitio PWA generado en %s (%d ediciones)", dest, len(index))
+    return dest
+
+
+def build_standalone(site_dir: Path, dest: Path) -> Path:
+    """Empaqueta el sitio en UN solo .html (CSS, JS, logo y ediciones incrustados).
+
+    Sirve para abrirlo con doble clic, adjuntarlo o revisarlo sin publicar nada.
+    No incluye service worker ni instalación (eso requiere el sitio publicado).
+    """
+    html = (site_dir / "index.html").read_text(encoding="utf-8")
+    css = (site_dir / "styles.css").read_text(encoding="utf-8")
+    js = (site_dir / "app.js").read_text(encoding="utf-8")
+
+    def data_uri(path: Path) -> str:
+        return "data:image/png;base64," + base64.b64encode(path.read_bytes()).decode("ascii")
+
+    data = {}
+    for f in sorted((site_dir / "data").glob("*.json")):
+        data[f"data/{f.name}"] = json.loads(f.read_text(encoding="utf-8"))
+    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+    html = html.replace('<link rel="stylesheet" href="styles.css">', f"<style>\n{css}\n</style>")
+    html = html.replace('<link rel="manifest" href="manifest.json">\n', "")
+    html = html.replace('src="assets/logo-global-transport.png"', f'src="{data_uri(site_dir / "assets" / LOGO_FILE)}"')
+    html = html.replace('href="icons/favicon.png"', f'href="{data_uri(site_dir / "icons" / "favicon.png")}"')
+    html = html.replace('<script src="app.js" defer></script>', f"<script>window.__GT_DATA__ = {payload};</script>\n<script>\n{js}\n</script>")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(html, encoding="utf-8")
     return dest

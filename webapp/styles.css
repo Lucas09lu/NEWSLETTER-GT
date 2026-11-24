@@ -139,8 +139,32 @@ a { color: var(--orange); }
 .footer { max-width: 720px; margin: 8px auto 0; padding: 16px 16px 32px; text-align: center; color: var(--muted); font-size: 12px; }
 .footer p { margin: 4px 0; }
 
+/* Orden en celular: resumen → filtros → noticias → radar → archivo */
+.layout, .col-main, .col-side { display: contents; }
+.layout { display: flex; flex-direction: column; }
+#summary { order: 1; }
+#pillar-chips { order: 2; }
+.toolbar { order: 3; }
+#stories { order: 4; }
+#radar { order: 5; margin-top: 12px; }
+#archive { order: 6; }
+
 @media (min-width: 720px) {
   .hero { padding: 28px max(16px, calc((100vw - 688px) / 2)); }
   .hero__picker select { max-width: 360px; }
+}
+
+/* Web de escritorio: noticias a la izquierda, resumen/radar/archivo a la derecha */
+@media (min-width: 1024px) {
+  .content, .footer { max-width: 1160px; }
+  .hero { padding: 32px max(24px, calc((100vw - 1112px) / 2)); }
+  .hero__title { font-size: 30px; }
+  .appbar { padding-left: max(24px, calc((100vw - 1112px) / 2)); padding-right: max(24px, calc((100vw - 1112px) / 2)); }
+  .content { padding: 24px; }
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 28px; align-items: start; }
+  .col-main, .col-side { display: block; }
+  .col-side { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  #radar { margin-top: 0; }
+  .story__title { font-size: 19px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

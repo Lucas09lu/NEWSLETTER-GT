@@ -44,29 +44,33 @@
       <button class="banner__close" data-close="ios-hint" aria-label="Cerrar">×</button>
     </div>
 
-    <nav class="chips" id="pillar-chips" aria-label="Filtrar por pilar"></nav>
+    <div class="layout">
+      <div class="col-main">
+        <nav class="chips" id="pillar-chips" aria-label="Filtrar por pilar"></nav>
+        <div class="toolbar">
+          <span id="story-count" class="muted"></span>
+          <button id="toggle-all" class="btn btn--link" type="button">Expandir todo</button>
+        </div>
+        <section id="stories" aria-live="polite"></section>
+      </div>
 
-    <section class="card card--summary" id="summary" hidden>
-      <h2 class="section-title">En 60 segundos</h2>
-      <ul id="summary-list"></ul>
-    </section>
+      <aside class="col-side">
+        <section class="card card--summary" id="summary" hidden>
+          <h2 class="section-title">En 60 segundos</h2>
+          <ul id="summary-list"></ul>
+        </section>
 
-    <div class="toolbar">
-      <span id="story-count" class="muted"></span>
-      <button id="toggle-all" class="btn btn--link" type="button">Expandir todo</button>
+        <section class="card card--radar" id="radar" hidden>
+          <h2 class="section-title section-title--light">Radar de Cifras</h2>
+          <div id="radar-list"></div>
+        </section>
+
+        <section class="archive" id="archive" hidden>
+          <h2 class="section-title">Ediciones anteriores</h2>
+          <ul id="archive-list"></ul>
+        </section>
+      </aside>
     </div>
-
-    <section id="stories" aria-live="polite"></section>
-
-    <section class="card card--radar" id="radar" hidden>
-      <h2 class="section-title section-title--light">Radar de Cifras</h2>
-      <div id="radar-list"></div>
-    </section>
-
-    <section class="archive" id="archive" hidden>
-      <h2 class="section-title">Ediciones anteriores</h2>
-      <ul id="archive-list"></ul>
-    </section>
 
     <div id="error" class="banner banner--error" hidden></div>
   </main>

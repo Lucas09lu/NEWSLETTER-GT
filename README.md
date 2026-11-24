@@ -17,8 +17,9 @@ Lima) a `wca.sales@gt.com.pe` + Web App / PWA móvil con el archivo de ediciones
    - `muestra`: datos ficticios para ver el diseño del correo y la app (no usa internet ni claves).
    - `real`: lee las fuentes reales de la última semana. Usa los *Secrets* que existan
      (`BRAVE_API_KEY`, `CLAUDE_API_KEY`, `NEWSLETTER_INBOX_*`); los conectores sin clave se omiten.
-3. Al terminar (~2 min):
-   - **App:** https://lucas09lu.github.io/NEWSLETTER-GT/ (ábrela en el celular → “Agregar a pantalla de inicio”).
+3. Al terminar (~3 min):
+   - **Web:** https://lucas09lu.github.io/NEWSLETTER-GT/ — se abre en cualquier navegador, en
+     computadora (dos columnas) o celular. En el celular puedes además “Agregar a pantalla de inicio”.
    - **Correo:** https://lucas09lu.github.io/NEWSLETTER-GT/preview/email.html
    - **Resumen por fuente:** en la página de la ejecución (estado de cada una de las 50 fuentes).
    - **Archivos:** sección *Artifacts* → `vista-previa-…` (JSON, `email.html`, `email.eml`).
@@ -31,6 +32,9 @@ Este flujo **nunca envía correos**.
 python pipeline.py run --dry-run --sample    # muestra, sin internet ni claves
 python pipeline.py preview                   # abre http://localhost:8000
 ```
+
+También se genera `out/vista-previa-web.html`: la web completa en **un solo archivo**
+que se abre con doble clic, sin internet ni servidor.
 
 `python pipeline.py run --dry-run` hace lo mismo con las fuentes reales.
 

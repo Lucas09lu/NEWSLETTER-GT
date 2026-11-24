@@ -212,7 +212,7 @@ def build_site_cmd(
     dry_run: bool = typer.Option(False, "--dry-run", help="Incluye ediciones de out/dry-run y la vista del correo"),
 ) -> None:
     """Capa 4b: genera la PWA estática en out/site (lista para GitHub Pages)."""
-    from delivery.site import build_site
+    from delivery.site import build_site, build_standalone
 
     settings = _init("build_site", dry_run)
     paths = Paths(settings, dry_run)
@@ -220,6 +220,8 @@ def build_site_cmd(
     preview = (paths.email_dir / "email.html") if dry_run else None
     dest = build_site(paths.site, dirs, email_preview=preview)
     typer.secho(f"✔ sitio: {dest}", fg="green")
+    single = build_standalone(dest, paths.out / "vista-previa-web.html")
+    typer.secho(f"✔ versión de un solo archivo (doble clic para abrir): {single}", fg="green")
 
 
 @app.command()
