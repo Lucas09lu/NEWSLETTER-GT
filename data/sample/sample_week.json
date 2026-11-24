@@ -1,0 +1,159 @@
+{
+  "_aviso": "DATOS FICTICIOS para previsualizar el diseño del correo y la app. No son noticias reales. Las ediciones generadas con --sample quedan marcadas con sample=true y muestran un aviso visible.",
+  "items": [
+    {
+      "source_id": 36, "day": 1,
+      "title": "Spot rates Asia–WCSA climb 9% as carriers announce December blank sailings",
+      "summary": "Container spot rates from North Asia to the West Coast of South America rose 9% week-on-week to USD 2,850 per FEU, while three carriers announced 4 blank sailings for December.",
+      "draft": {
+        "pillar": "logistica", "relevance": 5,
+        "headline": "Fletes spot Asia–Costa Oeste Sudamérica suben 9% en la semana",
+        "what_happened": "La tarifa spot desde el norte de Asia a la costa oeste de Sudamérica subió 9% semanal hasta USD 2,850 por FEU. Tres navieras anunciaron 4 blank sailings para diciembre.",
+        "impact": "Cerrar cotizaciones de importación desde Asia esta semana y advertir a clientes sobre menor capacidad en diciembre."
+      }
+    },
+    {
+      "source_id": 37, "day": 2,
+      "title": "Carriers announce December blank sailings on Asia–WCSA trade",
+      "summary": "Several ocean carriers confirmed blank sailings on the Asia–WCSA service in December, tightening capacity ahead of the year-end peak.",
+      "draft": null
+    },
+    {
+      "source_id": 8, "day": 2,
+      "title": "Muelle Sur del Callao moviliza 1,2 millones de TEU en lo que va del año",
+      "summary": "La Autoridad Portuaria Nacional informó que el terminal Muelle Sur del Callao movilizó 1,2 millones de TEU entre enero y octubre, 6% más que en el mismo periodo del año anterior.",
+      "draft": {
+        "pillar": "logistica", "relevance": 4,
+        "headline": "Callao Muelle Sur suma 1,2 millones de TEU entre enero y octubre",
+        "what_happened": "Según la APN, el terminal Muelle Sur movilizó 1,2 millones de TEU entre enero y octubre, 6% más que en el mismo periodo del año anterior.",
+        "impact": "Argumento para agentes WCA: el Callao sostiene crecimiento de volumen; anticipar ventanas de atraque más ajustadas."
+      }
+    },
+    {
+      "source_id": 32, "day": 3,
+      "title": "Chancay recibe su primer servicio directo semanal desde la costa este de EE. UU.",
+      "summary": "Una naviera inauguró un servicio directo semanal entre la costa este de Estados Unidos y el puerto de Chancay con un transit time de 14 días.",
+      "draft": {
+        "pillar": "logistica", "relevance": 4,
+        "headline": "Chancay estrena servicio directo semanal con la costa este de EE. UU.",
+        "what_happened": "Una naviera inauguró un servicio directo semanal entre la costa este de Estados Unidos y Chancay, con un transit time de 14 días.",
+        "impact": "Nueva alternativa para importadores con carga desde EE. UU. Este: comparar transit time frente a la vía Callao."
+      }
+    },
+    {
+      "source_id": 7, "day": 4,
+      "title": "BCRP: balanza comercial registra superávit de US$ 2 100 millones en setiembre",
+      "summary": "El Banco Central informó que la balanza comercial de setiembre registró un superávit de US$ 2 100 millones, impulsado por exportaciones tradicionales que crecieron 11%.",
+      "draft": {
+        "pillar": "comex", "relevance": 5,
+        "headline": "Balanza comercial de setiembre: superávit de US$ 2 100 millones",
+        "what_happened": "El BCRP reportó un superávit comercial de US$ 2 100 millones en setiembre, impulsado por exportaciones tradicionales que crecieron 11%.",
+        "impact": "Contexto positivo para conversaciones con exportadores: mayor demanda de espacio en rutas de salida."
+      }
+    },
+    {
+      "source_id": 12, "day": 1,
+      "title": "ADEX proyecta que exportaciones no tradicionales cerrarán el año con alza de 8%",
+      "summary": "La Asociación de Exportadores estimó que las exportaciones no tradicionales crecerán 8% al cierre del año, lideradas por el sector agropecuario.",
+      "draft": {
+        "pillar": "comex", "relevance": 4,
+        "headline": "ADEX proyecta alza de 8% en exportaciones no tradicionales",
+        "what_happened": "ADEX estimó que las exportaciones no tradicionales crecerán 8% al cierre del año, lideradas por el sector agropecuario.",
+        "impact": "Priorizar prospección en exportadores agro no tradicionales para la temporada de verano."
+      }
+    },
+    {
+      "source_id": 18, "day": 0,
+      "title": "Importaciones de bienes de capital repuntan en el tercer trimestre",
+      "summary": "Las importaciones de bienes de capital crecieron 5% en el tercer trimestre frente al año anterior, según cifras citadas por el diario.",
+      "draft": {
+        "pillar": "comex", "relevance": 3,
+        "headline": "Importaciones de bienes de capital repuntan 5% en el tercer trimestre",
+        "what_happened": "Las importaciones de bienes de capital crecieron 5% en el tercer trimestre frente al año anterior (resumen público; nota completa con suscripción).",
+        "impact": "Señal de inversión: oportunidad en carga proyecto y maquinaria para importadores industriales."
+      }
+    },
+    {
+      "source_id": 21, "day": 3,
+      "title": "SUNAT publica nuevo procedimiento de despacho anticipado para envíos de exportación",
+      "summary": "La resolución publicada en El Peruano establece un nuevo procedimiento de despacho anticipado que entra en vigencia el 15 de diciembre.",
+      "draft": {
+        "pillar": "regulacion", "relevance": 5,
+        "headline": "SUNAT actualiza el despacho anticipado de exportación desde el 15 de diciembre",
+        "what_happened": "Una resolución publicada en El Peruano establece un nuevo procedimiento de despacho anticipado para exportaciones, vigente desde el 15 de diciembre.",
+        "impact": "Revisar con el área de aduanas los cambios antes del 15 de diciembre y comunicarlos a exportadores clientes."
+      }
+    },
+    {
+      "source_id": 3, "day": 4,
+      "title": "Mincetur y la Unión Europea revisan capítulo de reglas de origen del acuerdo comercial",
+      "summary": "El Mincetur informó que concluyó la 2.ª ronda técnica con la Unión Europea para actualizar las reglas de origen del acuerdo comercial vigente.",
+      "draft": {
+        "pillar": "regulacion", "relevance": 4,
+        "headline": "Perú y la UE avanzan en la actualización de reglas de origen",
+        "what_happened": "El Mincetur concluyó la 2.ª ronda técnica con la Unión Europea para actualizar las reglas de origen del acuerdo comercial vigente.",
+        "impact": "Seguir la negociación: cambios en reglas de origen afectan la documentación de exportadores a la UE."
+      }
+    },
+    {
+      "source_id": 28, "day": 2,
+      "title": "Arándano peruano supera las 250 mil toneladas exportadas en la campaña",
+      "summary": "Los envíos de arándano fresco superaron las 250 mil toneladas en la campaña actual, con Estados Unidos como principal destino con 55% del volumen.",
+      "draft": {
+        "pillar": "sectorial", "relevance": 5,
+        "headline": "Arándano peruano supera las 250 mil toneladas en la campaña",
+        "what_happened": "Los envíos de arándano fresco superaron las 250 mil toneladas en la campaña; Estados Unidos concentra el 55% del volumen.",
+        "impact": "Demanda sostenida de reefers hacia EE. UU.: asegurar espacio refrigerado con anticipación."
+      }
+    },
+    {
+      "source_id": 29, "day": 5,
+      "title": "Uva de mesa peruana inicia campaña con envíos 12% superiores",
+      "summary": "Las primeras semanas de la campaña de uva de mesa muestran envíos 12% superiores al año pasado, con fuerte demanda desde Asia.",
+      "draft": {
+        "pillar": "sectorial", "relevance": 4,
+        "headline": "Campaña de uva de mesa arranca con envíos 12% mayores",
+        "what_happened": "Las primeras semanas de la campaña de uva de mesa muestran envíos 12% superiores al año anterior, con fuerte demanda desde Asia.",
+        "impact": "Coordinar con agentes WCA en Asia la recepción de picos de reefers en enero."
+      }
+    },
+    {
+      "source_id": 31, "day": 3,
+      "title": "Exportaciones de cobre crecen 7% en valor por mejores precios internacionales",
+      "summary": "Las exportaciones de cobre aumentaron 7% en valor en el último mes reportado, impulsadas por el alza del precio internacional del metal.",
+      "draft": {
+        "pillar": "sectorial", "relevance": 3,
+        "headline": "Exportaciones de cobre crecen 7% en valor",
+        "what_happened": "Las exportaciones de cobre subieron 7% en valor en el último mes reportado, por el alza del precio internacional.",
+        "impact": "Mayor actividad minera sostiene demanda de carga proyecto e insumos importados."
+      }
+    },
+    {
+      "source_id": 41, "day": 1,
+      "title": "WTO Goods Trade Barometer stands at 102.3, signalling steady trade growth",
+      "summary": "The latest WTO Goods Trade Barometer reading of 102.3 points to continued, moderate growth in merchandise trade volumes into the first quarter.",
+      "draft": {
+        "pillar": "global", "relevance": 4,
+        "headline": "Barómetro de la OMC (102.3) anticipa crecimiento moderado del comercio",
+        "what_happened": "El Goods Trade Barometer de la OMC marcó 102.3, lo que apunta a un crecimiento moderado del volumen de comercio de mercancías hacia el primer trimestre.",
+        "impact": "Indicador adelantado favorable para proyectar volúmenes con clientes en el primer trimestre."
+      }
+    },
+    {
+      "source_id": 38, "day": 4,
+      "title": "IATA: global air cargo demand up 6.1% year-on-year in October",
+      "summary": "IATA reported that global air cargo demand, measured in CTKs, rose 6.1% year-on-year in October, with Latin American carriers posting the strongest growth.",
+      "draft": {
+        "pillar": "global", "relevance": 4,
+        "headline": "IATA: demanda de carga aérea global crece 6.1% en octubre",
+        "what_happened": "La demanda global de carga aérea (CTKs) subió 6.1% interanual en octubre; las aerolíneas latinoamericanas registraron el mayor crecimiento.",
+        "impact": "Esperar tarifas aéreas firmes en temporada alta: cotizar perecibles y e-commerce con validez corta."
+      }
+    }
+  ],
+  "indicators": [
+    {"series_code": "MUESTRA-X", "name": "Exportaciones FOB (millones US$) — MUESTRA", "period": "Set.2026", "value": 7120.4, "previous_period": "Ago.2026", "previous_value": 6890.2},
+    {"series_code": "MUESTRA-M", "name": "Importaciones FOB (millones US$) — MUESTRA", "period": "Set.2026", "value": 5020.1, "previous_period": "Ago.2026", "previous_value": 5110.7},
+    {"series_code": "MUESTRA-B", "name": "Balanza comercial (millones US$) — MUESTRA", "period": "Set.2026", "value": 2100.3, "previous_period": "Ago.2026", "previous_value": 1779.5}
+  ]
+}

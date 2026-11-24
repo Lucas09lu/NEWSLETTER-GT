@@ -1,0 +1,108 @@
+# Ejecución MANUAL de prueba (botón "Run workflow" en la pestaña Actions).
+# Nunca envía correos: corre el pipeline en modo --dry-run, deja todo como
+# artefacto descargable y (opcional) publica la app en GitHub Pages.
+name: Vista previa (manual, sin envío)
+
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "muestra = datos ficticios para ver el diseño · real = fuentes reales de la última semana"
+        type: choice
+        options: [muestra, real]
+        default: muestra
+      publicar_app:
+        description: "Publicar la app en GitHub Pages para verla en el celular"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vista-previa
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # Credenciales opcionales: si un secreto no existe, ese conector se omite.
+      CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+      BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+      NEWSLETTER_INBOX_IMAP: ${{ secrets.NEWSLETTER_INBOX_IMAP }}
+      NEWSLETTER_INBOX_USER: ${{ secrets.NEWSLETTER_INBOX_USER }}
+      NEWSLETTER_INBOX_PASS: ${{ secrets.NEWSLETTER_INBOX_PASS }}
+      APP_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+      TZ: America/Lima
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Tests
+        run: python -m pytest
+
+      - name: Pipeline en modo prueba (${{ inputs.modo }})
+        run: |
+          if [ "${{ inputs.modo }}" = "muestra" ]; then
+            python pipeline.py run --dry-run --sample
+          else
+            python pipeline.py run --dry-run
+          fi
+
+      - name: Resumen de la ejecución
+        if: always()
+        run: |
+          python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import glob, json
+          print("## Vista previa · modo `${{ inputs.modo }}`\n")
+          for path in sorted(glob.glob("out/dry-run/editions/edition_*.json")):
+              ed = json.load(open(path))
+              print(f"**{ed['subject']}**\n")
+              print(f"- Modo de curación: `{ed['curation_mode']}` · noticias: {len(ed['stories'])} · radar: {len(ed['radar'])}")
+              for note in ed.get("notes", []):
+                  print(f"- Nota: {note}")
+          for path in sorted(glob.glob("out/dry-run/raw_items_*.json")):
+              raw = json.load(open(path))
+              print("\n| # | Fuente | Conector | Estado | Ítems | Detalle |\n|---|---|---|---|---|---|")
+              for r in raw["runs"]:
+                  msg = (r.get("message") or "").replace("|", "/")[:90]
+                  print(f"| {r['source_id']} | {r['source_name']} | {r.get('connector') or '-'} | {r['status']} | {r['items']} | {msg} |")
+          EOF
+
+      - name: Guardar resultados (descargables)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vista-previa-${{ inputs.modo }}
+          path: out/
+          retention-days: 14
+
+      - name: Preparar la app para GitHub Pages
+        if: inputs.publicar_app
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out/site
+
+  deploy:
+    if: inputs.publicar_app
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

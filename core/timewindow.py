@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 from core.models import TimeWindow
 
 LIMA = ZoneInfo("America/Lima")
+MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "set", "oct", "nov", "dic"]
 
 
 def today_lima() -> date:
@@ -40,3 +41,15 @@ def in_window(dt: datetime | None, window: TimeWindow) -> bool:
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
     return window.start <= dt <= window.end
+
+
+def date_range_label(start: datetime, end: datetime) -> str:
+    """'23–29 nov 2026' o '30 nov–6 dic 2026' (hora Lima)."""
+    s, e = start.astimezone(LIMA), end.astimezone(LIMA)
+    if s.month == e.month:
+        return f"{s.day}–{e.day} {MONTHS[e.month - 1]} {e.year}"
+    return f"{s.day} {MONTHS[s.month - 1]}–{e.day} {MONTHS[e.month - 1]} {e.year}"
+
+
+def long_date(d: date) -> str:
+    return f"{d.day} {MONTHS[d.month - 1]} {d.year}"

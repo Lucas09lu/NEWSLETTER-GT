@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{ edition.subject }}</title>
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<style>td,th,div,p,a,h1,h2,h3{font-family:'Segoe UI',Arial,sans-serif !important;}</style>
+<![endif]-->
+</head>
+{%- set FONT = "Inter, 'Segoe UI', Arial, sans-serif" -%}
+{%- set BLUE = "#003978" -%}
+{%- set ORANGE = "#F26722" -%}
+{%- set TEXT = "#1F2937" -%}
+{%- set MUTED = "#6B7280" -%}
+<body style="margin:0;padding:0;background-color:#F4F6F8;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+<!-- Preheader (oculto) -->
+<div style="display:none;font-size:1px;color:#F4F6F8;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">{{ edition.preheader }}&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F4F6F8" style="background-color:#F4F6F8;">
+<tr><td align="center" style="padding:24px 12px;">
+
+<!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td><![endif]-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+
+{% if edition.sample %}
+<tr><td style="padding:0 0 12px 0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td bgcolor="#FFF4EC" style="background-color:#FFF4EC;border:2px dashed {{ ORANGE }};padding:12px 16px;font-family:{{ FONT }};font-size:14px;line-height:1.4;color:{{ TEXT }};">
+      <strong style="color:{{ ORANGE }};">EDICIÓN DE MUESTRA</strong> · Contenido ficticio generado para revisar el diseño. No reenviar.
+    </td></tr>
+  </table>
+</td></tr>
+{% endif %}
+
+<!-- Contenedor principal -->
+<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;border-top:4px solid {{ BLUE }};">
+
+  <!-- Header: logo -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td style="padding:24px 28px 16px 28px;" align="left">
+        <a href="{{ app_url }}" target="_blank" style="text-decoration:none;">
+          <img src="{{ logo_url }}" width="170" alt="Global Transport" style="display:block;width:170px;max-width:170px;height:auto;border:0;outline:none;text-decoration:none;font-family:{{ FONT }};font-size:20px;font-weight:bold;color:{{ BLUE }};">
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Banda de título -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td bgcolor="{{ BLUE }}" style="background-color:{{ BLUE }};padding:20px 28px;">
+        <p style="margin:0;font-family:{{ FONT }};font-size:12px;line-height:1.4;letter-spacing:1.5px;text-transform:uppercase;color:#FFFFFF;opacity:0.85;">Inteligencia Comex · Resumen Semanal</p>
+        <h1 style="margin:6px 0 0 0;font-family:{{ FONT }};font-size:24px;line-height:1.25;font-weight:700;color:#FFFFFF;">{{ range_label }}</h1>
+        <p style="margin:6px 0 0 0;font-family:{{ FONT }};font-size:14px;line-height:1.4;color:#FFFFFF;">Edición del {{ edition_label }} · <span style="color:{{ ORANGE }};font-weight:700;">{{ edition.main_theme }}</span></p>
+      </td>
+    </tr>
+  </table>
+
+  {% if notice %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="padding:14px 28px 0 28px;font-family:{{ FONT }};font-size:12px;line-height:1.5;color:{{ MUTED }};">{{ notice }}</td></tr>
+  </table>
+  {% endif %}
+
+  <!-- En 60 segundos -->
+  {% if edition.executive_summary %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="padding:24px 28px 8px 28px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td bgcolor="#F4F6F8" style="background-color:#F4F6F8;border-left:4px solid {{ ORANGE }};padding:16px 20px;">
+          <p style="margin:0 0 10px 0;font-family:{{ FONT }};font-size:13px;line-height:1.4;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:{{ BLUE }};">En 60 segundos</p>
+          {% for bullet in edition.executive_summary %}
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="18" valign="top" style="font-family:{{ FONT }};font-size:15px;line-height:1.5;color:{{ ORANGE }};font-weight:700;">&#9656;</td>
+              <td valign="top" style="padding:0 0 6px 0;font-family:{{ FONT }};font-size:15px;line-height:1.5;color:{{ TEXT }};">{{ bullet }}</td>
+            </tr>
+          </table>
+          {% endfor %}
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+  {% endif %}
+
+  <!-- Bloques por pilar -->
+  {% for pillar, label, stories in edition.stories_by_pillar() %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="padding:24px 28px 4px 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr><td bgcolor="{{ ORANGE }}" style="background-color:{{ ORANGE }};padding:5px 12px;font-family:{{ FONT }};font-size:11px;line-height:1.2;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#FFFFFF;">{{ label }}</td></tr>
+      </table>
+    </td></tr>
+    {% for story in stories %}
+    <tr><td style="padding:14px 28px 0 28px;">
+      <h2 style="margin:0 0 6px 0;font-family:{{ FONT }};font-size:18px;line-height:1.3;font-weight:700;color:{{ BLUE }};">
+        <a href="{{ story.source.url }}" target="_blank" style="color:{{ BLUE }};text-decoration:none;">{{ story.headline }}</a>
+      </h2>
+      <p style="margin:0 0 8px 0;font-family:{{ FONT }};font-size:15px;line-height:1.5;color:{{ TEXT }};">{{ story.what_happened }}</p>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td style="padding:8px 12px;border-left:3px solid {{ ORANGE }};background-color:#FFF7F2;font-family:{{ FONT }};font-size:14px;line-height:1.5;color:{{ TEXT }};" bgcolor="#FFF7F2">
+          <strong style="color:{{ ORANGE }};">Impacto comercial:</strong> {{ story.impact }}
+        </td></tr>
+      </table>
+      <p style="margin:8px 0 0 0;font-family:{{ FONT }};font-size:13px;line-height:1.5;color:{{ MUTED }};">
+        Fuente: <a href="{{ story.source.url }}" target="_blank" style="color:{{ ORANGE }};text-decoration:underline;">{{ story.source.name }}</a>{% if story.paywalled %} (resumen público){% endif %}
+        {%- if story.also_reported_by %} · También: {% for ref in story.also_reported_by %}<a href="{{ ref.url }}" target="_blank" style="color:{{ MUTED }};text-decoration:underline;">{{ ref.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}
+      </p>
+    </td></tr>
+    {% if not loop.last %}
+    <tr><td style="padding:14px 28px 0 28px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background-color:#E5E7EB;" bgcolor="#E5E7EB">&nbsp;</td></tr></table></td></tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+  {% endfor %}
+
+  {% if not edition.stories %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="padding:24px 28px;font-family:{{ FONT }};font-size:15px;line-height:1.5;color:{{ TEXT }};">Esta semana no se identificaron novedades con impacto comercial verificable en las fuentes monitoreadas.</td></tr>
+  </table>
+  {% endif %}
+
+  <!-- Radar de Cifras -->
+  {% if edition.radar %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="padding:28px 28px 0 28px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid {{ BLUE }};">
+        <tr><td colspan="3" bgcolor="{{ BLUE }}" style="background-color:{{ BLUE }};padding:10px 16px;font-family:{{ FONT }};font-size:13px;line-height:1.4;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#FFFFFF;">Radar de Cifras</td></tr>
+        {% for r in edition.radar %}
+        <tr>
+          <td style="padding:10px 16px;border-top:1px solid #E5E7EB;font-family:{{ FONT }};font-size:14px;line-height:1.4;color:{{ TEXT }};">
+            <a href="{{ r.source.url }}" target="_blank" style="color:{{ TEXT }};text-decoration:none;">{{ r.label }}</a><br>
+            <span style="font-size:12px;color:{{ MUTED }};">{{ r.period }} · {{ r.source.name }}</span>
+          </td>
+          <td align="right" style="padding:10px 8px;border-top:1px solid #E5E7EB;font-family:{{ FONT }};font-size:18px;line-height:1.2;font-weight:700;color:{{ BLUE }};white-space:nowrap;">{{ r.value }}</td>
+          <td align="right" style="padding:10px 16px 10px 0;border-top:1px solid #E5E7EB;font-family:{{ FONT }};font-size:12px;line-height:1.3;color:{% if r.trend == 'down' %}{{ ORANGE }}{% else %}{{ MUTED }}{% endif %};white-space:nowrap;">
+            {% if r.trend == 'up' %}&#9650;{% elif r.trend == 'down' %}&#9660;{% endif %} {{ r.change or '' }}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td></tr>
+  </table>
+  {% endif %}
+
+  <!-- CTA App -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td align="center" style="padding:32px 28px 28px 28px;">
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="{{ app_url }}" style="height:46px;v-text-anchor:middle;width:340px;" arcsize="10%" stroke="f" fillcolor="{{ ORANGE }}">
+        <w:anchorlock/><center style="color:#FFFFFF;font-family:'Segoe UI',Arial,sans-serif;font-size:15px;font-weight:bold;">Leer en la App / Ver ediciones anteriores</center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]><!-->
+      <a href="{{ app_url }}" target="_blank" style="display:inline-block;background-color:{{ ORANGE }};color:#FFFFFF;font-family:{{ FONT }};font-size:15px;line-height:46px;font-weight:700;text-decoration:none;padding:0 28px;border-radius:4px;">Leer en la App / Ver ediciones anteriores</a>
+      <!--<![endif]-->
+    </td></tr>
+  </table>
+
+</td></tr>
+
+<!-- Footer -->
+<tr><td style="padding:20px 28px;font-family:{{ FONT }};font-size:12px;line-height:1.6;color:{{ MUTED }};" align="center">
+  Fecha de corte: {{ cutoff_label }} (hora Lima) · {{ edition.stats.sources_total }} fuentes procesadas{% if edition.stats.sources_ok %} ({{ edition.stats.sources_ok }} con novedades){% endif %}.<br>
+  Documento de uso interno de <strong style="color:{{ BLUE }};">Global Transport</strong>. Cada cifra enlaza a su fuente original.
+</td></tr>
+
+</table>
+<!--[if mso]></td></tr></table><![endif]-->
+
+</td></tr>
+</table>
+</body>
+</html>
