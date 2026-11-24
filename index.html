@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inteligencia Comex · Global Transport</title>
+<meta name="description" content="Resumen semanal de comercio internacional y logística para el equipo comercial de Global Transport.">
+<meta name="theme-color" content="#003978">
+<meta name="robots" content="noindex, nofollow">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Comex GT">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="appbar">
+    <img class="appbar__logo" src="assets/logo-global-transport.png" alt="Global Transport" width="122" height="50">
+    <button id="install-btn" class="btn btn--ghost" hidden>Instalar app</button>
+  </header>
+
+  <section class="hero">
+    <p class="hero__kicker">Inteligencia Comex · Resumen semanal</p>
+    <h1 class="hero__title" id="edition-range">Cargando…</h1>
+    <p class="hero__theme" id="edition-theme"></p>
+    <label class="hero__picker">
+      <span class="sr-only">Elegir edición</span>
+      <select id="edition-select" aria-label="Elegir edición"></select>
+    </label>
+  </section>
+
+  <main class="content">
+    <div id="sample-banner" class="banner banner--sample" hidden>
+      <strong>Edición de muestra</strong> · Contenido ficticio para revisar el diseño.
+    </div>
+    <div id="notice" class="banner banner--info" hidden></div>
+    <div id="ios-hint" class="banner banner--info" hidden>
+      Para instalar en iPhone: toca <strong>Compartir</strong> y luego <strong>“Agregar a pantalla de inicio”</strong>.
+      <button class="banner__close" data-close="ios-hint" aria-label="Cerrar">×</button>
+    </div>
+
+    <div class="layout">
+      <div class="col-main">
+        <nav class="chips" id="pillar-chips" aria-label="Filtrar por pilar"></nav>
+        <div class="toolbar">
+          <span id="story-count" class="muted"></span>
+          <button id="toggle-all" class="btn btn--link" type="button">Expandir todo</button>
+        </div>
+        <section id="stories" aria-live="polite"></section>
+      </div>
+
+      <aside class="col-side">
+        <section class="card card--summary" id="summary" hidden>
+          <h2 class="section-title">En 60 segundos</h2>
+          <ul id="summary-list"></ul>
+        </section>
+
+        <section class="card card--radar" id="radar" hidden>
+          <h2 class="section-title section-title--light">Radar de Cifras</h2>
+          <div id="radar-list"></div>
+        </section>
+
+        <section class="archive" id="archive" hidden>
+          <h2 class="section-title">Ediciones anteriores</h2>
+          <ul id="archive-list"></ul>
+        </section>
+      </aside>
+    </div>
+
+    <div id="error" class="banner banner--error" hidden></div>
+  </main>
+
+  <footer class="footer">
+    <p id="footer-stats"></p>
+    <p>Uso interno de <strong>Global Transport</strong>. Cada cifra enlaza a su fuente original.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-11-24",
+  "window": {
+    "start": "2026-11-16T00:00:00-05:00",
+    "end": "2026-11-22T23:59:59-05:00"
+  },
+  "generated_at": "2026-11-24T19:45:39.847177Z",
+  "curation_mode": "heuristic",
+  "sample": true,
+  "subject": "[Inteligencia Comex] Resumen Semanal · 16–22 nov 2026 | Comercio Exterior Peruano y Cifras Macro",
+  "preheader": "Balanza comercial de setiembre: superávit de US$ 2 100 millones · SUNAT actualiza el despacho anticipado de exportación desde el 15 de diciembre · Fletes spot Asia–Costa Oeste Sudamérica suben 9% en la semana",
+  "main_theme": "Comercio Exterior Peruano y Cifras Macro",
+  "executive_summary": [
+    "Balanza comercial de setiembre: superávit de US$ 2 100 millones",
+    "SUNAT actualiza el despacho anticipado de exportación desde el 15 de diciembre",
+    "Fletes spot Asia–Costa Oeste Sudamérica suben 9% en la semana",
+    "Arándano peruano supera las 250 mil toneladas en la campaña"
+  ],
+  "stories": [
+    {
+      "id": "d5cf9efc8bca5fa2",
+      "pillar": "logistica",
+      "headline": "Fletes spot Asia–Costa Oeste Sudamérica suben 9% en la semana",
+      "what_happened": "La tarifa spot desde el norte de Asia a la costa oeste de Sudamérica subió 9% semanal hasta USD 2,850 por FEU. Tres navieras anunciaron 4 blank sailings para diciembre.",
+      "impact": "Cerrar cotizaciones de importación desde Asia esta semana y advertir a clientes sobre menor capacidad en diciembre.",
+      "source": {
+        "name": "Hellenic Shipping News",
+        "url": "https://example.com/muestra/spot-rates-asia-wcsa-climb-9-as-carriers-announce-december-b"
+      },
+      "also_reported_by": [
+        {
+          "name": "Container News",
+          "url": "https://example.com/muestra/carriers-announce-december-blank-sailings-on-asia-wcsa-trade"
+        }
+      ],
+      "published_at": "2026-11-17T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": false,
+      "item_ids": [
+        "d5cf9efc8bca5fa2",
+        "abe7f1183149a33e"
+      ]
+    },
+    {
+      "id": "8f73f91bb7fbfd89",
+      "pillar": "logistica",
+      "headline": "Callao Muelle Sur suma 1,2 millones de TEU entre enero y octubre",
+      "what_happened": "Según la APN, el terminal Muelle Sur movilizó 1,2 millones de TEU entre enero y octubre, 6% más que en el mismo periodo del año anterior.",
+      "impact": "Argumento para agentes WCA: el Callao sostiene crecimiento de volumen; anticipar ventanas de atraque más ajustadas.",
+      "source": {
+        "name": "APN – Noticias",
+        "url": "https://example.com/muestra/muelle-sur-del-callao-moviliza-1-2-millones-de-teu-en-lo-que"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-18T09:00:00-05:00",
+      "is_official": true,
+      "paywalled": false,
+      "item_ids": [
+        "8f73f91bb7fbfd89"
+      ]
+    },
+    {
+      "id": "ce6d065c56527e04",
+      "pillar": "logistica",
+      "headline": "Chancay estrena servicio directo semanal con la costa este de EE. UU.",
+      "what_happened": "Una naviera inauguró un servicio directo semanal entre la costa este de Estados Unidos y Chancay, con un transit time de 14 días.",
+      "impact": "Nueva alternativa para importadores con carga desde EE. UU. Este: comparar transit time frente a la vía Callao.",
+      "source": {
+        "name": "Mundo Marítimo",
+        "url": "https://example.com/muestra/chancay-recibe-su-primer-servicio-directo-semanal-desde-la-c"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-19T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": false,
+      "item_ids": [
+        "ce6d065c56527e04"
+      ]
+    },
+    {
+      "id": "86af52c7e1d8759d",
+      "pillar": "comex",
+      "headline": "Balanza comercial de setiembre: superávit de US$ 2 100 millones",
+      "what_happened": "El BCRP reportó un superávit comercial de US$ 2 100 millones en setiembre, impulsado por exportaciones tradicionales que crecieron 11%.",
+      "impact": "Contexto positivo para conversaciones con exportadores: mayor demanda de espacio en rutas de salida.",
+      "source": {
+        "name": "BCRPData – Exportaciones e importaciones",
+        "url": "https://example.com/muestra/bcrp-balanza-comercial-registra-super-vit-de-us-2-100-millon"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-20T09:00:00-05:00",
+      "is_official": true,
+      "paywalled": false,
+      "item_ids": [
+        "86af52c7e1d8759d"
+      ]
+    },
+    {
+      "id": "bb95410c54ce518a",
+      "pillar": "comex",
+      "headline": "ADEX proyecta alza de 8% en exportaciones no tradicionales",
+      "what_happened": "ADEX estimó que las exportaciones no tradicionales crecerán 8% al cierre del año, lideradas por el sector agropecuario.",
+      "impact": "Priorizar prospección en exportadores agro no tradicionales para la temporada de verano.",
+      "source": {
+        "name": "ADEX",
+        "url": "https://example.com/muestra/adex-proyecta-que-exportaciones-no-tradicionales-cerrar-n-el"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-17T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": false,
+      "item_ids": [
+        "bb95410c54ce518a"
+      ]
+    },
+    {
+      "id": "0dc38db5d0ea1529",
+      "pillar": "comex",
+      "headline": "Importaciones de bienes de capital repuntan 5% en el tercer trimestre",
+      "what_happened": "Las importaciones de bienes de capital crecieron 5% en el tercer trimestre frente al año anterior (resumen público; nota completa con suscripción).",
+      "impact": "Señal de inversión: oportunidad en carga proyecto y maquinaria para importadores industriales.",
+      "source": {
+        "name": "Gestión – Comercio exterior",
+        "url": "https://example.com/muestra/importaciones-de-bienes-de-capital-repuntan-en-el-tercer-tri"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-16T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": true,
+      "item_ids": [
+        "0dc38db5d0ea1529"
+      ]
+    },
+    {
+      "id": "49b43432824d3386",
+      "pillar": "regulacion",
+      "headline": "SUNAT actualiza el despacho anticipado de exportación desde el 15 de diciembre",
+      "what_happened": "Una resolución publicada en El Peruano establece un nuevo procedimiento de despacho anticipado para exportaciones, vigente desde el 15 de diciembre.",
+      "impact": "Revisar con el área de aduanas los cambios antes del 15 de diciembre y comunicarlos a exportadores clientes.",
+      "source": {
+        "name": "El Peruano",
+        "url": "https://example.com/muestra/sunat-publica-nuevo-procedimiento-de-despacho-anticipado-par"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-19T09:00:00-05:00",
+      "is_official": true,
+      "paywalled": false,
+      "item_ids": [
+        "49b43432824d3386"
+      ]
+    },
+    {
+      "id": "adb0b14154613ae6",
+      "pillar": "regulacion",
+      "headline": "Perú y la UE avanzan en la actualización de reglas de origen",
+      "what_happened": "El Mincetur concluyó la 2.ª ronda técnica con la Unión Europea para actualizar las reglas de origen del acuerdo comercial vigente.",
+      "impact": "Seguir la negociación: cambios en reglas de origen afectan la documentación de exportadores a la UE.",
+      "source": {
+        "name": "Mincetur – Noticias",
+        "url": "https://example.com/muestra/mincetur-y-la-uni-n-europea-revisan-cap-tulo-de-reglas-de-or"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-20T09:00:00-05:00",
+      "is_official": true,
+      "paywalled": false,
+      "item_ids": [
+        "adb0b14154613ae6"
+      ]
+    },
+    {
+      "id": "b905d6a65f64d828",
+      "pillar": "sectorial",
+      "headline": "Arándano peruano supera las 250 mil toneladas en la campaña",
+      "what_happened": "Los envíos de arándano fresco superaron las 250 mil toneladas en la campaña; Estados Unidos concentra el 55% del volumen.",
+      "impact": "Demanda sostenida de reefers hacia EE. UU.: asegurar espacio refrigerado con anticipación.",
+      "source": {
+        "name": "Agraria.pe",
+        "url": "https://example.com/muestra/ar-ndano-peruano-supera-las-250-mil-toneladas-exportadas-en-"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-18T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": false,
+      "item_ids": [
+        "b905d6a65f64d828"
+      ]
+    },
+    {
+      "id": "2cddf9d7fb80151c",
+      "pillar": "sectorial",
+      "headline": "Campaña de uva de mesa arranca con envíos 12% mayores",
+      "what_happened": "Las primeras semanas de la campaña de uva de mesa muestran envíos 12% superiores al año anterior, con fuerte demanda desde Asia.",
+      "impact": "Coordinar con agentes WCA en Asia la recepción de picos de reefers en enero.",
+      "source": {
+        "name": "Portal Frutícola",
+        "url": "https://example.com/muestra/uva-de-mesa-peruana-inicia-campa-a-con-env-os-12-superiores"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-21T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": false,
+      "item_ids": [
+        "2cddf9d7fb80151c"
+      ]
+    },
+    {
+      "id": "72a1afee23c0e08e",
+      "pillar": "sectorial",
+      "headline": "Exportaciones de cobre crecen 7% en valor",
+      "what_happened": "Las exportaciones de cobre subieron 7% en valor en el último mes reportado, por el alza del precio internacional.",
+      "impact": "Mayor actividad minera sostiene demanda de carga proyecto e insumos importados.",
+      "source": {
+        "name": "Rumbo Minero",
+        "url": "https://example.com/muestra/exportaciones-de-cobre-crecen-7-en-valor-por-mejores-precios"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-19T09:00:00-05:00",
+      "is_official": false,
+      "paywalled": false,
+      "item_ids": [
+        "72a1afee23c0e08e"
+      ]
+    },
+    {
+      "id": "9c494959bca150da",
+      "pillar": "global",
+      "headline": "IATA: demanda de carga aérea global crece 6.1% en octubre",
+      "what_happened": "La demanda global de carga aérea (CTKs) subió 6.1% interanual en octubre; las aerolíneas latinoamericanas registraron el mayor crecimiento.",
+      "impact": "Esperar tarifas aéreas firmes en temporada alta: cotizar perecibles y e-commerce con validez corta.",
+      "source": {
+        "name": "IATA – Air Cargo Market Analysis",
+        "url": "https://example.com/muestra/iata-global-air-cargo-demand-up-6-1-year-on-year-in-october"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-20T09:00:00-05:00",
+      "is_official": true,
+      "paywalled": false,
+      "item_ids": [
+        "9c494959bca150da"
+      ]
+    },
+    {
+      "id": "310fc68864588646",
+      "pillar": "global",
+      "headline": "Barómetro de la OMC (102.3) anticipa crecimiento moderado del comercio",
+      "what_happened": "El Goods Trade Barometer de la OMC marcó 102.3, lo que apunta a un crecimiento moderado del volumen de comercio de mercancías hacia el primer trimestre.",
+      "impact": "Indicador adelantado favorable para proyectar volúmenes con clientes en el primer trimestre.",
+      "source": {
+        "name": "OMC – Goods Trade Barometer",
+        "url": "https://example.com/muestra/wto-goods-trade-barometer-stands-at-102-3-signalling-steady-"
+      },
+      "also_reported_by": [],
+      "published_at": "2026-11-17T09:00:00-05:00",
+      "is_official": true,
+      "paywalled": false,
+      "item_ids": [
+        "310fc68864588646"
+      ]
+    }
+  ],
+  "radar": [
+    {
+      "label": "Exportaciones FOB (millones US$) — MUESTRA",
+      "value": "7 120",
+      "period": "Set.2026",
+      "change": "+3.3% vs Ago.2026",
+      "trend": "up",
+      "source": {
+        "name": "BCRPData (muestra)",
+        "url": "https://estadisticas.bcrp.gob.pe/estadisticas/series/"
+      }
+    },
+    {
+      "label": "Importaciones FOB (millones US$) — MUESTRA",
+      "value": "5 020",
+      "period": "Set.2026",
+      "change": "-1.8% vs Ago.2026",
+      "trend": "down",
+      "source": {
+        "name": "BCRPData (muestra)",
+        "url": "https://estadisticas.bcrp.gob.pe/estadisticas/series/"
+      }
+    },
+    {
+      "label": "Balanza comercial (millones US$) — MUESTRA",
+      "value": "2 100",
+      "period": "Set.2026",
+      "change": "+18.0% vs Ago.2026",
+      "trend": "up",
+      "source": {
+        "name": "BCRPData (muestra)",
+        "url": "https://estadisticas.bcrp.gob.pe/estadisticas/series/"
+      }
+    }
+  ],
+  "stats": {
+    "sources_total": 50,
+    "sources_ok": 14,
+    "sources_error": 0,
+    "items_raw": 14,
+    "items_considered": 14
+  },
+  "notes": []
+}
