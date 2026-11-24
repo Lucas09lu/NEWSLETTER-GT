@@ -1,0 +1,169 @@
+# =============================================================================
+# Estrategia de ingesta por fuente (complementa la hoja "Fuentes" del Excel).
+#
+# El Excel sigue siendo la fuente única de verdad para QUÉ fuentes existen.
+# Este archivo solo define CÓMO se leen. Si una fuente nueva aparece en el
+# Excel y no está aquí, `sources_loader` le asigna una estrategia por defecto
+# según "Estado de la revisión" y "Nota" (RSS descubierto → búsqueda).
+#
+# Campos por fuente (clave = columna "#"):
+#   connectors        orden de ejecución: bcrp_api | rss | inbox | search | static_index
+#                     ([] = fuente de consulta: no se monitorea semanalmente)
+#   fallback_only     conectores que solo corren si los anteriores no trajeron nada
+#   feed_url          RSS confirmado (si no, se intenta descubrir)
+#   search_query      consulta Brave (usar `site:dominio`)
+#   inbox_senders     dominios/remitentes del boletín en el buzón IMAP
+#   index_url / index_link_pattern   página índice + regex de links nuevos
+#   require_keywords  filtra ítems por vocabulario comex (medios generalistas)
+#   paywalled         solo titular + fecha + resumen público (nunca el cuerpo)
+#   official          fuente oficial primaria (prioridad en deduplicación)
+#   bcrp_series       códigos de series BCRPData para el Radar de Cifras
+# =============================================================================
+
+defaults:
+  # Fuentes generalistas: vocabulario mínimo para que un ítem pase a curación.
+  keywords:
+    - export
+    - import
+    - comercio exterior
+    - comercio internacional
+    - balanza comercial
+    - aduan
+    - sunat
+    - arancel
+    - tlc
+    - tratado de libre comercio
+    - acuerdo comercial
+    - mincetur
+    - promper
+    - puerto
+    - portuari
+    - callao
+    - chancay
+    - paita
+    - naviera
+    - flete
+    - contenedor
+    - logístic
+    - logistic
+    - carga
+    - agroexport
+    - arándano
+    - uva
+    - palta
+    - mango
+    - café
+    - cacao
+    - espárrago
+    - pesca
+    - harina de pescado
+    - miner
+    - cobre
+    - oro
+    - zinc
+    - container
+    - freight
+    - shipping
+    - cargo
+    - tariff
+    - trade
+    - port
+    - teu
+    - air cargo
+  max_items_per_source: 40
+
+sources:
+  # --- Entidades oficiales (Perú) ---------------------------------------------
+  1:  {connectors: [search], search_query: "site:gob.pe promperu exportaciones", official: true}
+  2:  {connectors: [rss, search], fallback_only: [search], search_query: "site:exportemos.pe", official: true}
+  3:  {connectors: [search], search_query: "site:gob.pe mincetur comercio exterior", official: true}
+  4:  {connectors: [search], search_query: "site:sunat.gob.pe exportaciones estadísticas", official: true}
+  5:  {connectors: [search], search_query: "site:gob.pe inei exportaciones importaciones", official: true}
+  6:  {connectors: [search], search_query: "site:bcrp.gob.pe nota semanal", official: true}
+  7:
+    connectors: [bcrp_api]
+    official: true
+    # Códigos de BCRPData (mensuales). El nombre que se muestra en el Radar se
+    # toma de la propia respuesta de la API, nunca de este archivo.
+    # Catálogo: https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/exportaciones-e-importaciones
+    bcrp_series: [PN38714BM, PN38718BM, PN38721BM]
+  8:  {connectors: [search], search_query: "site:gob.pe apn puertos carga", official: true}
+  9:  {connectors: [search], search_query: "site:gob.pe mtc puerto aeropuerto logística", official: true}
+  10: {connectors: [search], search_query: "site:gob.pe ositran puertos", official: true}
+  11: {connectors: [search], search_query: "site:gob.pe minem exportaciones mineras", official: true}
+
+  # --- Gremios y centros de estudio (Perú) -----------------------------------
+  12: {connectors: [search], search_query: "site:adexperu.org.pe"}
+  13: {connectors: [rss, search], fallback_only: [search], search_query: "site:cien.adexperu.org.pe"}
+  14: {connectors: [search], search_query: "site:comexperu.org.pe"}
+  15: {connectors: [inbox, search], fallback_only: [search], inbox_senders: [lacamara.pe], search_query: "site:lacamara.pe comercio exterior"}
+  16: {connectors: [rss, search], fallback_only: [search], search_query: "site:sni.org.pe"}
+  17: {connectors: [rss, search], fallback_only: [search], search_query: "site:desdeadentro.pe"}
+
+  # --- Prensa económica y de negocios ----------------------------------------
+  18: {connectors: [inbox, search], inbox_senders: [gestion.pe], search_query: "site:gestion.pe comercio exterior", paywalled: true}
+  19: {connectors: [search], search_query: "site:elcomercio.pe exportaciones", paywalled: true}
+  20: {connectors: [inbox, rss, search], fallback_only: [rss, search], inbox_senders: [andina.pe], search_query: "site:andina.pe exportaciones", require_keywords: true}
+  21: {connectors: [rss, search], fallback_only: [search], search_query: "site:elperuano.pe comercio exterior aduanas", require_keywords: true, official: true}
+  22: {connectors: [rss, search], fallback_only: [search], search_query: "site:larepublica.pe exportaciones", require_keywords: true}
+  23: {connectors: [rss, search], fallback_only: [search], search_query: "site:bloomberglinea.com perú exportaciones", require_keywords: true}
+  24: {connectors: [rss, search], fallback_only: [search], search_query: "site:infobae.com perú exportaciones", require_keywords: true}
+  25: {connectors: [rss, search], fallback_only: [search], search_query: "site:proactivo.com.pe", require_keywords: true}
+  26: {connectors: [rss, search], fallback_only: [search], search_query: "site:energiminas.com", require_keywords: true}
+  27: {connectors: [search], search_query: "site:peru-retail.com comercio exterior"}
+
+  # --- Sectoriales (agro, fruta, minería) ------------------------------------
+  28: {connectors: [inbox, rss, search], fallback_only: [rss, search], inbox_senders: [agraria.pe], search_query: "site:agraria.pe agroexportación"}
+  29: {connectors: [rss, search], fallback_only: [search], search_query: "site:portalfruticola.com perú", require_keywords: true}
+  30: {connectors: [rss, search], fallback_only: [search], search_query: "site:agrolatam.com perú", require_keywords: true}
+  31: {connectors: [search], search_query: "site:rumbominero.com exportaciones"}
+
+  # --- Logística, puertos y carga --------------------------------------------
+  32: {connectors: [rss, search], fallback_only: [search], search_query: "site:mundomaritimo.cl perú"}
+  33: {connectors: [search], search_query: "site:theloadstar.com", paywalled: true}
+  34: {connectors: [inbox, rss], fallback_only: [rss], inbox_senders: [gcaptain.com]}
+  35: {connectors: [search], search_query: "site:joc.com container shipping", paywalled: true}
+  36: {connectors: [rss], feed_url: "https://www.hellenicshippingnews.com/feed/", require_keywords: true}
+  37: {connectors: [search], search_query: "site:container-news.com"}
+  38:
+    connectors: [static_index, search]
+    fallback_only: [search]
+    index_url: "https://www.iata.org/en/publications/economics/"
+    index_link_pattern: "(?i)air-cargo-market-analysis"
+    search_query: "site:iata.org air cargo market analysis"
+    official: true
+  39: {connectors: [rss, search], fallback_only: [search], search_query: "site:jctrans.com logistics news"}
+
+  # --- Organismos internacionales y bases de datos ---------------------------
+  40:
+    connectors: [static_index, search]
+    fallback_only: [search]
+    index_url: "https://www.wto.org/english/news_e/news_e.htm"
+    index_link_pattern: "(?i)/news_e/(pres|news)\\d\\d_e/"
+    search_query: "site:wto.org trade outlook statistics"
+    official: true
+  41:
+    connectors: [static_index]
+    index_url: "https://www.wto.org/english/news_e/news_e.htm"
+    index_link_pattern: "(?i)wtoi_\\w+"
+    official: true
+  42:
+    connectors: [inbox, static_index]
+    inbox_senders: [unctad.org]
+    index_url: "https://unctad.org/publications"
+    index_link_pattern: "(?i)/publication/global-trade-update"
+    official: true
+  43: {connectors: [search], search_query: "site:cepal.org comercio internacional", official: true}
+  44: {connectors: []}   # WITS: base de datos de consulta (sin novedades semanales)
+  45: {connectors: []}   # ITC Trade Map: base de datos de consulta
+  46: {connectors: [search], search_query: "site:trade.ec.europa.eu access2markets peru", official: true}
+  47: {connectors: [search], search_query: "site:trade.gov peru", official: true}
+  48:
+    connectors: [static_index, search]
+    fallback_only: [search]
+    index_url: "https://publications.iadb.org/en?keys=trade%20trends%20estimates"
+    index_link_pattern: "(?i)trade-trends-estimates"
+    search_query: "site:iadb.org trade trends estimates"
+    official: true
+  49: {connectors: [search], search_query: "site:siicex.gob.pe", official: true}
+  50: {connectors: []}   # OMC Tariff & Trade Data: base de datos de consulta
